@@ -1,4 +1,4 @@
-package alex.bogardi.test;
+package alebo611.boardgame.test;
 import alebo611.boardgame.*;
 import static org.junit.Assert.*;
 
