@@ -57,8 +57,8 @@ class Boat {
     Boat(int x, int y, int max, int shipSize, boolean horizontal, Board b) throws IndexOutOfBoundsException, CollisionWithAnotherBoatException{
     	this.belongsTo = b;
     	
-    	if (horizontal && x + shipSize > max) throw new IndexOutOfBoundsException("Boat does not fit view!");    	
-    	if (!horizontal && y + shipSize > max) throw new IndexOutOfBoundsException("Boat does not fit view!");    	
+    	if (horizontal && x + shipSize >= max) throw new IndexOutOfBoundsException("Boat does not fit view!");    	
+    	if (!horizontal && y + shipSize >= max) throw new IndexOutOfBoundsException("Boat does not fit view!");    	
         if (willCollide(x, y, shipSize, horizontal)) throw new CollisionWithAnotherBoatException();
         
         createBoat(x, y, shipSize, horizontal);
