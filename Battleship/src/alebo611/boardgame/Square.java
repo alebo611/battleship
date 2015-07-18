@@ -1,4 +1,4 @@
-package alex.bogardi.boardgame;
+package alebo611.boardgame;
 class Square {
 
     int x,y;

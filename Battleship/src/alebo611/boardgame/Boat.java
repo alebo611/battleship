@@ -1,4 +1,4 @@
-package alex.bogardi.boardgame;
+package alebo611.boardgame;
 import java.util.ArrayList;
 import java.util.Random;
 

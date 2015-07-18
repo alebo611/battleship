@@ -1,5 +1,5 @@
 package alex.bogardi.test;
-import alex.bogardi.boardgame.*;
+import alebo611.boardgame.*;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
