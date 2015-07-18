@@ -48,10 +48,10 @@ public class Board {
         for (int i = 0; i < fieldSize; i++){
             for (int j = 0; j < fieldSize; j++){
                 if(battleField[j][i] != null){
-                    System.out.print('0');
+                    System.out.print(battleField[j][i].belongsTo.getSignature());
                 }
                 else{
-                    System.out.print('X');
+                	System.out.print('0');
                 }
             }
             System.out.print("\n");

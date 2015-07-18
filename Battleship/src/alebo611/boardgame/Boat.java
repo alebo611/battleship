@@ -7,7 +7,24 @@ class Boat {
     
     ArrayList<Square> squares;
     Board belongsTo;
-    {
+    char signature;
+    static char charCounter = 'A'-1; // Easier to distinguish different boats;
+    
+    public char getSignature() {
+		return signature;
+	}
+
+	public void setSignature(char signature) {
+		this.signature = signature;
+	}
+
+	public void setSignature() {
+		
+		this.signature = charCounter++;
+	}
+
+	
+	{
     	
     	 squares = new ArrayList<Square>();
     	
@@ -73,7 +90,8 @@ class Boat {
             this.addSquare(horizontal? p1 : p2,horizontal? p2 : p1);
             
         }while(i < shipSize);
-    	
+        
+        setSignature();
     }
 
     void addSquare(int x, int y){
@@ -85,7 +103,7 @@ class Boat {
     boolean willCollide(int p1, int p2, int shipSize, boolean horizontal){
         
     	
-    	for(int i =  0; i < shipSize; i++){
+    	for(int i =  0; i <= shipSize; i++){
     		
     		int x = horizontal ? p1 + i : p2;
     		int y = horizontal ? p2: p1 + i;
