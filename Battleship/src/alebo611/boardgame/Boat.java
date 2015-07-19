@@ -3,15 +3,15 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-class Boat {
+public class Boat {
     
     ArrayList<Square> squares;
     Board belongsTo;
     char signature;
     static char charCounter = 'A'-1; // Easier to distinguish different boats;
     
-    public char getSignature() {
-		return signature;
+    public String getSignature() {
+		return String.valueOf(signature);
 	}
 
 	public void setSignature(char signature) {

@@ -1,11 +1,11 @@
 package alebo611.boardgame;
-class Square {
+public class Square {
 
     int x,y;
 
     boolean onFire;
 
-    Boat belongsTo;
+    public Boat belongsTo;
 
     Square(int x,int y, Boat b){
         

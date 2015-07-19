@@ -10,7 +10,7 @@ public class Board implements Shooter {
     ArrayList<Boat> boats;
     public int fieldSize = 10;
 
-    Square[][] battleField;
+    public Square[][] battleField;
     
     /*
     public static void main(String [] args){
@@ -24,7 +24,7 @@ public class Board implements Shooter {
         battleField = new Square[fieldSize][fieldSize];
         boats = new ArrayList<Boat>();
     }
-
+    
     public void addBoatRandom(int boatSize){
         Boat b = new Boat(fieldSize, boatSize, this);
         addBoatToListAndBoard(b);
@@ -78,6 +78,15 @@ public class Board implements Shooter {
 			}
 			
 		}
+
+	@Override
+	public void createAllBoats() {
+		this.addBoatRandom(2);
+		this.addBoatRandom(3);
+		this.addBoatRandom(3);
+		this.addBoatRandom(4);
+		this.addBoatRandom(5);
+	}
 		
 
 }
