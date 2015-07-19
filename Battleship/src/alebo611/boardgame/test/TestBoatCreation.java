@@ -1,5 +1,8 @@
 package alebo611.boardgame.test;
-import alebo611.boardgame.*;
+import alebo611.boardgame.Board;
+import alebo611.boardgame.Shooter;
+import alebo611.boardgame.CollisionWithAnotherBoatException;
+import alebo611.boardgame.Shooter.HitResult;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -134,7 +137,7 @@ public void testCollitionVertical() {
 	 * Manual test so far
 	 */
 	@Test
-	public void testCreateLotOfRandomBoatsAndVerifyGameField(){
+	public void testCreateLotOfRandomBoatsAndShootEmAll(){
 		Board b = new Board();
 		
 		b.addBoatRandom(1);
@@ -142,7 +145,35 @@ public void testCollitionVertical() {
 		b.addBoatRandom(3);
 		b.addBoatRandom(4);
 		b.addBoatRandom(5);
+		
+		int controlHitNotSunk =  1 + 2 + 3 + 4 + 5 - 5; // five of the hits result in sunken ship
+		int controlSunk = 5;
+		int waterCount = (b.fieldSize * b.fieldSize) - controlHitNotSunk - controlSunk;
+		
+		int c1 = 0,c2 = 0,c3=0;
+		for(int i = 0; i < b.fieldSize; i++){
+			for(int j = 0; j < b.fieldSize; j++){
+				switch(b.shoot(i, j)){
+				case HIT_SHIP_NOT_SUNK_YET:
+					c1++;
+					break;
+				case HIT_SHIP_SUNK:
+					c2++;
+					break;
+				case WATER:
+					c3++;
+					break;
+					
+				default:
+				}
+			}
+		}
+		
+		assertTrue(c1 + "!=" + controlHitNotSunk, c1 == controlHitNotSunk);
+		assertTrue(c2 + "!=" + controlSunk, c2 == controlSunk);
+		assertTrue(c3 + "!=" + waterCount, c3 == waterCount);
 
+		
 		b.printBoard();
 	}
 }

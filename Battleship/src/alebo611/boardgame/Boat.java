@@ -114,13 +114,12 @@ class Boat {
     }
 
     public boolean isAlive(){
-    	
-    	int i=0;
+    	    	
     	for(Square s : squares){
-    		if(s.onFire)i++;
+    		if(!s.onFire)return true;
     	}
     
-    	return i == squares.size() ? true : false;
+    	return false;
     
     }
     

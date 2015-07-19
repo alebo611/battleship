@@ -8,7 +8,7 @@ public class Board implements Shooter {
     
     
     ArrayList<Boat> boats;
-    int fieldSize = 10;
+    public int fieldSize = 10;
 
     Square[][] battleField;
     
@@ -72,9 +72,9 @@ public class Board implements Shooter {
 			return HitResult.THIS_SQUARE_IS_ALREADY_BURNING;
 		}
 		else{
+			s.onFire = true;
 			// Now were gonna find out if we sunk the ship or not
-			Boat b = s.belongsTo;
-			return b.isAlive() ? HitResult.HIT_SHIP_SUNK : HitResult.HIT_SHIP_NOT_SUNK_YET;
+			return s.belongsTo.isAlive() ?  HitResult.HIT_SHIP_NOT_SUNK_YET : HitResult.HIT_SHIP_SUNK;
 			}
 			
 		}
