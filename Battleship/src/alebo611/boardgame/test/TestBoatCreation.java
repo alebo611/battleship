@@ -172,8 +172,7 @@ public void testCollitionVertical() {
 		assertTrue(c1 + "!=" + controlHitNotSunk, c1 == controlHitNotSunk);
 		assertTrue(c2 + "!=" + controlSunk, c2 == controlSunk);
 		assertTrue(c3 + "!=" + waterCount, c3 == waterCount);
-
-		
+			
 		b.printBoard();
 	}
 }
