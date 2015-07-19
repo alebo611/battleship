@@ -20,7 +20,7 @@ public class TestBoatCreation {
 	}
 	
 	
-	
+	@Test
 	public void testCollitionHorizontal() {
 		
 		Board b = new Board();
@@ -60,7 +60,7 @@ public class TestBoatCreation {
 	}
 	
 	
-
+@Test
 public void testCollitionVertical() {
 		
 		Board b = new Board();
@@ -134,7 +134,7 @@ public void testCollitionVertical() {
 	}
 	
 	/**
-	 * Manual test so far
+	 *
 	 */
 	@Test
 	public void testCreateLotOfRandomBoatsAndShootEmAll(){
@@ -173,6 +173,29 @@ public void testCollitionVertical() {
 		assertTrue(c2 + "!=" + controlSunk, c2 == controlSunk);
 		assertTrue(c3 + "!=" + waterCount, c3 == waterCount);
 			
+		
+	}
+	
+	@Test
+	public void testToPlaceBoatAndShootAtSameSquareTwoTimesAndSinkOnThird(){
+		
+Board b = new Board();
+		
+		try {
+			b.addBoatControlled(2, 2, 2, true);
+		
+		} catch (IndexOutOfBoundsException e) {
+			fail("Should not generate exception");
+		} catch (CollisionWithAnotherBoatException e) {
+			fail("Should not generate exception");
+		}
 		b.printBoard();
+		
+		Shooter.HitResult hr = b.shoot(2, 2);
+		assertTrue(hr.toString(),hr == Shooter.HitResult.HIT_SHIP_NOT_SUNK_YET);
+		hr = b.shoot(2, 2);
+		assertTrue(hr.toString(),hr == Shooter.HitResult.THIS_SQUARE_IS_ALREADY_BURNING);
+		hr = b.shoot(3, 2);
+		assertTrue(hr.toString(),hr == Shooter.HitResult.HIT_SHIP_SUNK);
 	}
 }

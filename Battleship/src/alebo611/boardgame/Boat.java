@@ -86,9 +86,8 @@ class Boat {
         do{
             
             i++;
-            p1++;
             this.addSquare(horizontal? p1 : p2,horizontal? p2 : p1);
-            
+            p1++;
         }while(i < shipSize);
         
         setSignature();
