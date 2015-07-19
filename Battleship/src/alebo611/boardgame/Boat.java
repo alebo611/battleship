@@ -113,7 +113,18 @@ class Boat {
     	return false;
     }
 
-
+    public boolean isAlive(){
+    	
+    	int i=0;
+    	for(Square s : squares){
+    		if(s.onFire)i++;
+    	}
+    
+    	return i == squares.size() ? true : false;
+    
+    }
+    
+    
         
 
         

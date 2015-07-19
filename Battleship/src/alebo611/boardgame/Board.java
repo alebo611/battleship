@@ -1,8 +1,10 @@
 package alebo611.boardgame;
 import java.util.ArrayList;
 
+import org.hamcrest.core.IsNull;
 
-public class Board {
+
+public class Board implements Shooter {
     
     
     ArrayList<Boat> boats;
@@ -57,5 +59,25 @@ public class Board {
             System.out.print("\n");
         }
     }
+
+	@Override
+	public HitResult shoot(int x, int y) {
+		
+		Square s = this.battleField[x][y];
+		
+		if(s == null){
+			return HitResult.WATER;
+		}
+		else if(s.onFire){			
+			return HitResult.THIS_SQUARE_IS_ALREADY_BURNING;
+		}
+		else{
+			// Now were gonna find out if we sunk the ship or not
+			Boat b = s.belongsTo;
+			return b.isAlive() ? HitResult.HIT_SHIP_SUNK : HitResult.HIT_SHIP_NOT_SUNK_YET;
+			}
+			
+		}
+		
 
 }
