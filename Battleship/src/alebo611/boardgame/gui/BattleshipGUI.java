@@ -98,7 +98,9 @@ public class BattleshipGUI extends Application {
     						case WATER:
     							btn.setText("W");
     							break;
-    							
+    						case ALL_SHIPS_SUNK_GAME_OVER:
+    							btn.setText("H");
+    							break;
     						default:
     						}
     			    	} 

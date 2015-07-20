@@ -75,8 +75,16 @@ public class Board implements Shooter {
 		}
 		else{
 			s.onFire = true;
-			// Now were gonna find out if we sunk the ship or not
-			return s.belongsTo.isAlive() ?  HitResult.HIT_SHIP_NOT_SUNK_YET : HitResult.HIT_SHIP_SUNK;
+			// Now were gonna find out if we sunk the ship or even the last ship, or not
+			if (s.belongsTo.isAlive()){
+				return HitResult.HIT_SHIP_NOT_SUNK_YET;
+			}
+			else if(!areAllBoatsSunk()){
+				return HitResult.HIT_SHIP_SUNK;
+			}
+			else{
+				return HitResult.ALL_SHIPS_SUNK_GAME_OVER;
+			}
 			}
 			
 		}
@@ -89,6 +97,12 @@ public class Board implements Shooter {
 		this.addBoatRandom(4);
 		this.addBoatRandom(5);
 	}
-		
+	
+	boolean areAllBoatsSunk(){
+		for(Boat b : boats){
+			if (b.isAlive()) return false;
+		}
+		return true;
+	}
 
 }
