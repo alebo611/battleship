@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Boat {
+class Boat {
     
     ArrayList<Square> squares;
     Board belongsTo;

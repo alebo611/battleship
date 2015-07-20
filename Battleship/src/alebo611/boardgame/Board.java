@@ -8,9 +8,9 @@ public class Board implements Shooter {
     
     
     ArrayList<Boat> boats;
-    public int fieldSize = 10;
+    public int fieldSize;
 
-    public Square[][] battleField;
+    Square[][] battleField;
     
     /*
     public static void main(String [] args){
@@ -20,9 +20,11 @@ public class Board implements Shooter {
 
 
 
-    public Board(){
-        battleField = new Square[fieldSize][fieldSize];
+    public Board(int fieldsize){
+    	this.fieldSize = fieldsize;
+    	battleField = new Square[fieldSize][fieldSize];
         boats = new ArrayList<Boat>();
+        
     }
     
     public void addBoatRandom(int boatSize){

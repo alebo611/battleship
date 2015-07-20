@@ -23,7 +23,7 @@ public class TestBoatCreation {
 	@Test
 	public void testCollitionHorizontal() {
 		
-		Board b = new Board();
+		Board b = new Board(10);
 		
 		try {
 			b.addBoatControlled(5, 5, 4, true);
@@ -63,7 +63,7 @@ public class TestBoatCreation {
 @Test
 public void testCollitionVertical() {
 		
-		Board b = new Board();
+		Board b = new Board(10);
 		
 		try {
 			b.addBoatControlled(5, 5, 4, false);
@@ -108,7 +108,7 @@ public void testCollitionVertical() {
 	 */
 	@Test
 	public void testCollitionBetweenTwoVerticalBoats(){
-		Board b = new Board();
+		Board b = new Board(10);
 		
 		try {
 			b.addBoatControlled(5, 5, 4, false);
@@ -138,7 +138,7 @@ public void testCollitionVertical() {
 	 */
 	@Test
 	public void testCreateLotOfRandomBoatsAndShootEmAll(){
-		Board b = new Board();
+		Board b = new Board(10);
 		
 		b.addBoatRandom(1);
 		b.addBoatRandom(2);
@@ -179,7 +179,7 @@ public void testCollitionVertical() {
 	@Test
 	public void testToPlaceBoatAndShootAtSameSquareTwoTimesAndSinkOnThird(){
 		
-Board b = new Board();
+Board b = new Board(10);
 		
 		try {
 			b.addBoatControlled(2, 2, 2, true);
